@@ -40,8 +40,7 @@ let register = browser => {
     setInputValue(myAccountPage, '@emailCreateInput', data.registration.validEmailAddress)
     myAccountPage
         .click('@createAccountButton')
-        .waitForElementVisible('@createAccountError', 3000)
-        .expect.element('@createAccountErrorLine').text.to.equal(data.registration.invalidEmailError)
+        
 }
 
 module.exports = {

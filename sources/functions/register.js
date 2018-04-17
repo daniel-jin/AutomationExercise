@@ -18,7 +18,7 @@ let setInputValue = (page, element, data) => {
  * @param {object} browser The Nightwatch object
  */
 let register = browser => {
-    let myAccountPage = browser.page.myAccountPage()
+    let myAccountPage = browser.page.myAccount();
     myAccountPage.navigate()
     myAccountPage.waitForElementVisible('@createAccountButton', 5000)
 
@@ -26,7 +26,7 @@ let register = browser => {
     myAccountPage
         .click('@createAccountButton')
         .waitForElementVisible('@createAccountError', 3000)
-        .verify.element('@createAccountErrorLine').text.to.equal(data.registration.invalidEmailError)
+        .expect.element('@createAccountErrorLine').text.to.equal(data.registration.invalidEmailError)
 }
 
 module.exports = {

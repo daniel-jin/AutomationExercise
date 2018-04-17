@@ -1,9 +1,9 @@
-const functions = require('../sources/functions')
+const registerFunctions = require('../sources/functions/register')
 
 module.exports = {
     beforeEach: browser => {},
     after: browser => {
         browser.end()
     },
-    'Registration': browser => functions.register(browser),
+    'Registration': browser => registerFunctions.register(browser),
 }

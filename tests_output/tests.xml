@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="1">
+
+  <testsuite name="tests"
+    errors="1" failures="0" hostname="" id="" package="tests" skipped="0"
+    tests="1" time="0.007000" timestamp="Tue, 17 Apr 2018 06:10:52 GMT">
+  
+    <testcase name="Registration" classname="tests" time="0.007000" assertions="0">
+    </testcase>
+  
+
+  
+    <system-err>
+        Error while running [Tests / Registration]:
+
+  TypeError: myAccountPage.verify.element is not a function
+    at Object.register (/Users/devmountain/Desktop/Automation/sources/functions/register.js:29:26)
+    at Object.Registration (/Users/devmountain/Desktop/Automation/tests/tests.js:8:50)
+    at Module.call (/usr/local/lib/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /usr/local/lib/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    </system-err>
+  
+
+  
+  </testsuite>
+</testsuites>

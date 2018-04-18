@@ -26,5 +26,7 @@ module.exports = {
         addressCity: "New York",
         addressZip: "10010",
 
+        mobilePhone: "6083819833",
+        addressAlias: "Test Address",
     }
 }

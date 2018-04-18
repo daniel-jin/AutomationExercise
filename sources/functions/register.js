@@ -37,7 +37,7 @@ let register = browser => {
         .expect.element('@createAccountErrorLine').text.to.equal(data.registration.invalidEmailError)
 
     // Enter valid email address
-    setInputValue(myAccountPage, '@emailCreateInput', data.registration.validEmailAddress3)
+    setInputValue(myAccountPage, '@emailCreateInput', data.registration.validEmailAddress4)
     myAccountPage
         .click('@createAccountButton')
 
@@ -78,7 +78,7 @@ let register = browser => {
         .expect.element('@errorText').text.to.contain("invalid")
     
     // Enter valid email address and attempt to register - should result in 6 errors.
-    setInputValue(personalInfoPage, '@emailInput', data.registration.validEmailAddress3)
+    setInputValue(personalInfoPage, '@emailInput', data.registration.validEmailAddress4)
     personalInfoPage
         .click('@registerButton')
         .waitForElementVisible('@errorBox', 5000)
@@ -110,7 +110,13 @@ let register = browser => {
     setInputValue(personalInfoPage, '@addressLastNameInput', data.registration.lastName)
     setInputValue(personalInfoPage, '@addressLine1', data.registration.addressLine1)
     setInputValue(personalInfoPage, '@addressCityInput', data.registration.addressCity)
-    setInputValue(personalInfoPage, '@addressZipInput', data.registration.firstName)
+    setInputValue(personalInfoPage, '@addressZipInput', data.registration.addressZip)
+    browser
+        .click('select[id="id_state"] option[value=32]')
+    setInputValue(personalInfoPage, '@mobilePhoneInput', data.registration.mobilePhone)
+    setInputValue(personalInfoPage, '@addressAliasInput', data.registration.addressAlias)
+
+    personalInfoPage.click('@registerButton')
 }
 
 

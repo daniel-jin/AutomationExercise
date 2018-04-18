@@ -19,26 +19,26 @@ let setInputValue = (page, element, data) => {
  * @param {object} browser The Nightwatch object
  */
 let register = browser => {
-    let myAccountPage = browser.page.myAccount();
-    myAccountPage.navigate()
-    myAccountPage.waitForElementVisible('@createAccountButton', 5000)
+    let authenticationPage = browser.page.authentication();
+    authenticationPage.navigate()
+    authenticationPage.waitForElementVisible('@createAccountButton', 10000)
 
     // "Invalid email address" error - null value for email address
-    myAccountPage
+    authenticationPage
         .click('@createAccountButton')
         .waitForElementVisible('@createAccountError', 3000)
         .expect.element('@createAccountErrorLine').text.to.equal(data.registration.invalidEmailError)
 
     // "Invalid email address" error - invalid email address format
-    setInputValue(myAccountPage, '@emailCreateInput', data.registration.invalidEmailAddress)
-    myAccountPage
+    setInputValue(authenticationPage, '@emailCreateInput', data.registration.invalidEmailAddress)
+    authenticationPage
         .click('@createAccountButton')
         .waitForElementVisible('@createAccountError', 3000)
         .expect.element('@createAccountErrorLine').text.to.equal(data.registration.invalidEmailError)
 
     // Enter valid email address
-    setInputValue(myAccountPage, '@emailCreateInput', data.registration.validEmailAddress4)
-    myAccountPage
+    setInputValue(authenticationPage, '@emailCreateInput', data.registration.validEmailAddress1)
+    authenticationPage
         .click('@createAccountButton')
 
     // You are now on the Personal Informatino page.
@@ -78,7 +78,7 @@ let register = browser => {
         .expect.element('@errorText').text.to.contain("invalid")
     
     // Enter valid email address and attempt to register - should result in 6 errors.
-    setInputValue(personalInfoPage, '@emailInput', data.registration.validEmailAddress4)
+    setInputValue(personalInfoPage, '@emailInput', data.registration.validEmailAddress1)
     personalInfoPage
         .click('@registerButton')
         .waitForElementVisible('@errorBox', 5000)
@@ -111,8 +111,11 @@ let register = browser => {
     setInputValue(personalInfoPage, '@addressLine1', data.registration.addressLine1)
     setInputValue(personalInfoPage, '@addressCityInput', data.registration.addressCity)
     setInputValue(personalInfoPage, '@addressZipInput', data.registration.addressZip)
-    browser
-        .click('select[id="id_state"] option[value=32]')
+
+    personalInfoPage.click('@addressStateSelect',()=>{
+        personalInfoPage.click('@addressStateNYOption');
+      });
+
     setInputValue(personalInfoPage, '@mobilePhoneInput', data.registration.mobilePhone)
     setInputValue(personalInfoPage, '@addressAliasInput', data.registration.addressAlias)
 

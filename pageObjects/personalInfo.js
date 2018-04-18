@@ -68,6 +68,16 @@ module.exports = {
         mobilePhoneInput: 'input[id="phone_mobile"]',
         addressAliasInput: 'input[id="alias"]',
         registerButton: 'button[id="submitAccount"]',
+
+        errorBox: 'div[class="alert alert-danger"]',
+        errorHeader: {
+            selector: '(//*[@id="center_column"])/div[1]/p[1]',
+            locateStrategy: 'xpath'
+        },
+        errorText: {
+            selector: '(//*[@id="center_column"])/div[1]/ol[1]/li[2]/text()', 
+            locateStrategy: 'xpath'
+        },
     }
 
 }

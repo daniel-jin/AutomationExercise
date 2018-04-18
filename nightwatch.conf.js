@@ -6,7 +6,7 @@ module.exports = {
       "start_process" : true,
       "server_path" : properties.resourcePath + properties.seleniumServer,
       "log_path" : "",
-      "port" : 4445,
+      "port" : 4444,
       "cli_args" : {
         "webdriver.chrome.driver" : properties.resourcePath + properties.chromedriver,
       }
@@ -15,7 +15,7 @@ module.exports = {
     "test_settings" : {
       "default" : {
         "launch_url" : "http://localhost",
-        "selenium_port"  : 4445,
+        "selenium_port"  : 4444,
         "selenium_host"  : "localhost",
         "silent": true,
         "screenshots" : {

@@ -100,6 +100,9 @@ let register = browser => {
         .waitForElementVisible('@errorBox', 5000)
         .expect.element('@errorHeader').text.to.equal(data.registration.fiveErrorsText)
     
+    // Re-enter valid password
+    setInputValue(personalInfoPage, '@passwordInput', data.registration.validPassword)
+
     // Sign up for newsletter & opt in for offers
     personalInfoPage
         .click('@newsletterInput')
@@ -119,7 +122,14 @@ let register = browser => {
     setInputValue(personalInfoPage, '@mobilePhoneInput', data.registration.mobilePhone)
     setInputValue(personalInfoPage, '@addressAliasInput', data.registration.addressAlias)
 
+    // Register, confirm that you are navigated to the My Account page
     personalInfoPage.click('@registerButton')
+
+    let myAccountPage = browser.page.myAccount();
+    myAccountPage.navigate();
+    myAccountPage
+        .waitForElementVisible('@navigationPage', 5000)
+        .expect.element('@navigationPage').text.to.equal("My account")
 }
 
 

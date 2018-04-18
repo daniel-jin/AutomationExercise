@@ -1,4 +1,5 @@
-const registerFunctions = require('../sources/functions/register')
+const registerFunctions = require('../sources/functions/1 - register')
+const checkoutFunctions = require('../sources/functions/2 - checkout')
 
 module.exports = {
     beforeEach: browser => {},
@@ -6,4 +7,5 @@ module.exports = {
         browser.end()
     },
     'Registration': browser => registerFunctions.register(browser),
+    'Checkout': browser => checkoutFunctions.checkOut(browser),
 }

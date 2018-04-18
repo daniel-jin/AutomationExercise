@@ -37,7 +37,7 @@ let register = browser => {
         .expect.element('@createAccountErrorLine').text.to.equal(data.registration.invalidEmailError)
 
     // Enter valid email address
-    setInputValue(authenticationPage, '@emailCreateInput', data.registration.validEmailAddress1)
+    setInputValue(authenticationPage, '@emailCreateInput', data.registration.validEmailAddress4)
     authenticationPage
         .click('@createAccountButton')
 
@@ -49,7 +49,7 @@ let register = browser => {
     // You should get 8 errors for the form.
     personalInfoPage
         .click('@registerButton')
-        .waitForElementVisible('@errorBox', 5000)
+        .waitForElementVisible('@errorBox', 10000)
         .expect.element('@errorHeader').text.to.equal(data.registration.eightErrorsText)
 
     // Enter first name and attemp to register - should result in 7 errors.
@@ -78,7 +78,8 @@ let register = browser => {
         .expect.element('@errorText').text.to.contain("invalid")
     
     // Enter valid email address and attempt to register - should result in 6 errors.
-    setInputValue(personalInfoPage, '@emailInput', data.registration.validEmailAddress1)
+    setInputValue(personalInfoPage, '@emailInput', data.registration.validEmailAddress4)
+    browser.pause(2000)
     personalInfoPage
         .click('@registerButton')
         .waitForElementVisible('@errorBox', 5000)

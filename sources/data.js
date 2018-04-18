@@ -2,11 +2,11 @@ module.exports = {
     'registration': {
         invalidEmailError: "Invalid email address.",
         invalidEmailAddress: "asdf@asdf.",
-        validEmailAddress1: "daniel.h.jin41@gmail.com",
-        validEmailAddress2: "daniel.h.jin42@gmail.com",
-        validEmailAddress3: "daniel.h.jin43@gmail.com",
-        validEmailAddress4: "daniel.h.jin44@gmail.com",
-        validEmailAddress5: "daniel.h.jin45@gmail.com",
+        validEmailAddress1: "daniel.h.jin51@gmail.com",
+        validEmailAddress2: "daniel.h.jin52@gmail.com",
+        validEmailAddress3: "daniel.h.jin53@gmail.com",
+        validEmailAddress4: "daniel.h.jin54@gmail.com",
+        validEmailAddress5: "daniel.h.jin55@gmail.com",
         validPassword: "12345",
         invalidPassword: "1234",
 

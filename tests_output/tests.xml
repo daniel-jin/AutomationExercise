@@ -5,9 +5,9 @@
 
   <testsuite name="tests"
     errors="1" failures="0" hostname="" id="" package="tests" skipped="0"
-    tests="1" time="0.007000" timestamp="Tue, 17 Apr 2018 06:10:52 GMT">
+    tests="1" time="0.03800" timestamp="Wed, 18 Apr 2018 18:58:48 GMT">
   
-    <testcase name="Registration" classname="tests" time="0.007000" assertions="0">
+    <testcase name="Registration" classname="tests" time="0.03800" assertions="0">
     </testcase>
   
 
@@ -15,9 +15,9 @@
     <system-err>
         Error while running [Tests / Registration]:
 
-  TypeError: myAccountPage.verify.element is not a function
-    at Object.register (/Users/devmountain/Desktop/Automation/sources/functions/register.js:29:26)
-    at Object.Registration (/Users/devmountain/Desktop/Automation/tests/tests.js:8:50)
+  TypeError: Cannot read property &#39;element&#39; of undefined
+    at Object.register (/Users/Guest1/Desktop/Archive/Automation/sources/functions/register.js:122:16)
+    at Object.Registration (/Users/Guest1/Desktop/Archive/Automation/tests/tests.js:8:50)
     at Module.call (/usr/local/lib/node_modules/nightwatch/lib/runner/module.js:62:34)
     at /usr/local/lib/node_modules/nightwatch/lib/runner/testcase.js:70:29
     at _fulfilled (/usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:834:54)

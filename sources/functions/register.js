@@ -37,56 +37,58 @@ let register = browser => {
         .expect.element('@createAccountErrorLine').text.to.equal(data.registration.invalidEmailError)
 
     // Enter valid email address
-    setInputValue(myAccountPage, '@emailCreateInput', data.registration.validEmailAddress2)
+    setInputValue(myAccountPage, '@emailCreateInput', data.registration.validEmailAddress3)
     myAccountPage
         .click('@createAccountButton')
 
     // You are now on the Personal Informatino page.
-    let personalInfoPage = browser.page.personalInfoPage();
+    let personalInfoPage = browser.page.personalInfo();
     personalInfoPage.waitForElementVisible('@registerButton', 5000)
 
     // Attempt to register with no data in any fields
-    // You should get 9 errors for the form.
+    // You should get 8 errors for the form.
     personalInfoPage
-        .click('registerButton')
+        .click('@registerButton')
         .waitForElementVisible('@errorBox', 5000)
-        .expect.element('@errorHeader').text.to.equal(data.registration.nineErrorsText)
+        .expect.element('@errorHeader').text.to.equal(data.registration.eightErrorsText)
 
-    // Enter first name and attemp to register - should result in 8 errors.
+    // Enter first name and attemp to register - should result in 7 errors.
     personalInfoPage
         .click('@titleMrRadioInput')
     setInputValue(personalInfoPage, '@firstNameInput', data.registration.firstName)
     personalInfoPage
-        .click('registerButton')
-        .waitForElementVisible('@errorBox', 5000)
-        .expect.element('@errorHeader').text.to.equal(data.registration.eightErrorsText)
-    
-    // Enter last name and attemp to register - should result in 7 errors.
-    setInputValue(personalInfoPage, '@lastNameInput', data.registration.lastName)
-    personalInfoPage
-        .click('registerButton')
+        .click('@registerButton')
         .waitForElementVisible('@errorBox', 5000)
         .expect.element('@errorHeader').text.to.equal(data.registration.sevenErrorsText)
+    
+    // Enter last name and attemp to register - should result in 6 errors.
+    setInputValue(personalInfoPage, '@lastNameInput', data.registration.lastName)
+    personalInfoPage
+        .click('@registerButton')
+        .waitForElementVisible('@errorBox', 5000)
+        .expect.element('@errorHeader').text.to.equal(data.registration.sixErrorsText)
 
     // Enter invalid email and attempt to register
     setInputValue(personalInfoPage, '@emailInput', data.registration.invalidEmailAddress)
     personalInfoPage
-        .click('registerButton')
+        .click('@registerButton')
         .waitForElementVisible('@errorBox', 5000)
+        .waitForElementVisible('@errorText', 3000)
         // Make sure the error states that the email is invalid (instead of the "required" error for no email provided)
         .expect.element('@errorText').text.to.contain("invalid")
     
     // Enter valid email address and attempt to register - should result in 6 errors.
-    setInputValue(personalInfoPage, '@emailInput', data.registration.validEmailAddress)
+    setInputValue(personalInfoPage, '@emailInput', data.registration.validEmailAddress3)
     personalInfoPage
-        .click('registerButton')
+        .click('@registerButton')
         .waitForElementVisible('@errorBox', 5000)
+        .waitForElementVisible('@errorHeader', 3000)
         .expect.element('@errorHeader').text.to.equal(data.registration.sixErrorsText)
 
     // Enter invalid password (less than 5 characters) into Password field and register
     setInputValue(personalInfoPage, '@passwordInput', data.registration.invalidPassword)
     personalInfoPage
-        .click('registerButton')
+        .click('@registerButton')
         .waitForElementVisible('@errorBox', 5000)
         // Make sure the error states that the password is invalid (instead of the "required" error for no password provided)
         .expect.element('@errorText').text.to.contain("invalid")
@@ -94,32 +96,21 @@ let register = browser => {
     // Enter valid password and attempt to register - should result in 5 errors.
     setInputValue(personalInfoPage, '@passwordInput', data.registration.validPassword)
     personalInfoPage
-        .click('registerButton')
+        .click('@registerButton')
         .waitForElementVisible('@errorBox', 5000)
         .expect.element('@errorHeader').text.to.equal(data.registration.fiveErrorsText)
-
-    // Fill in password again (it gets cleared), then fill in DOB
-    setInputValue(personalInfoPage, '@passwordInput', data.registration.validPassword)
-    personalInfoPage
-        .click('@dobDaySelect')
-        .waitForElementVisible('@dobFirstofMonth', 2000)
-        .click('@dobFirstofMonth')
-        .click('@dobMonthSelect')
-        .waitForElementVisible('@januaryOption', 2000)
-        .click('@januaryOption')
-        .click('@dobYearSelect')
-        .waitForElementVisible('@dobYear1987Option', 2000)
-        .click('@dobYear1987Option')
     
     // Sign up for newsletter & opt in for offers
     personalInfoPage
         .click('@newsletterInput')
-        .click('@specialOffersiNput')
+        .click('@specialOffersInput')
     
-    // Verify that Address first & last name are already filled in
-    personalInfoPage
-        .expect.element('@addressFirstNameInput').text.to.equal(data.registration.firstName)
-        .expect.element('@addressLastNameInput').text.to.equal(data.registration.lastName)
+    // Fill in Address section
+    setInputValue(personalInfoPage, '@addressFirstNameInput', data.registration.firstName)
+    setInputValue(personalInfoPage, '@addressLastNameInput', data.registration.lastName)
+    setInputValue(personalInfoPage, '@addressLine1', data.registration.addressLine1)
+    setInputValue(personalInfoPage, '@addressCityInput', data.registration.addressCity)
+    setInputValue(personalInfoPage, '@addressZipInput', data.registration.firstName)
 }
 
 

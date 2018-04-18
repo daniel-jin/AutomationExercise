@@ -6,7 +6,7 @@ module.exports = {
         titleMrRadioInput: 'input[id="id_gender1"]',
         titleMrsRadioInput: 'input[id="id_gender2"]',
         firstNameInput: 'input[id="customer_firstname"]',
-        lastNameiNput: 'input[id="customer_lastname"]',
+        lastNameInput: 'input[id="customer_lastname"]',
         emailInput: 'input[id="email"]',
         passwordInput: 'input[id="passwd"]',
         dobDaySelect: 'select[id="days"]',
@@ -75,7 +75,7 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         errorText: {
-            selector: '(//*[@id="center_column"])/div[1]/ol[1]/li[2]/text()', 
+            selector: '(//*[@id="center_column"])/div[1]/ol[1]/li[2]', 
             locateStrategy: 'xpath'
         },
     }

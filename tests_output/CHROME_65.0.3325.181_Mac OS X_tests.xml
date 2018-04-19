@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="1"
+            failures="0"
             tests="2">
 
   <testsuite name="tests"
-    errors="0" failures="1" hostname="" id="" package="tests" skipped="0"
-    tests="2" time="28.69" timestamp="Wed, 18 Apr 2018 22:09:16 GMT">
+    errors="0" failures="0" hostname="" id="" package="tests" skipped="0"
+    tests="2" time="35.90" timestamp="Thu, 19 Apr 2018 00:05:50 GMT">
   
-    <testcase name="Registration" classname="tests" time="22.15" assertions="40">
+    <testcase name="Registration" classname="tests" time="24.81" assertions="40">
 
     
 
@@ -90,8 +90,25 @@
     
     </testcase>
   
-    <testcase name="Checkout" classname="tests" time="6.536" assertions="1">  <failure message="Timed out while waiting for element &lt;//*[@id=&#34;center_column&#34;]/ul/li[1]/div/div[2]/div[2]/a[1]&gt; to be visible for 5000 milliseconds.">    at Object.checkOut (/Users/Guest1/Desktop/Archive/Automation/sources/functions/2 - checkout.js:28:10)
-    at Object.Checkout (/Users/Guest1/Desktop/Archive/Automation/tests/tests.js:10:46)</failure>
+    <testcase name="Checkout" classname="tests" time="11.08" assertions="10">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
     </testcase>

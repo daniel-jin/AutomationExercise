@@ -1,6 +1,7 @@
 module.exports = {
     firstItemCheckOutButton: 'a[title="Add to cart"]',
-    proceedToCheckOut1: 'a[href="btn btn-default button button-medium"]',
+    firstItemImage: 'img[src="http://automationpractice.com/img/p/8/8-home_default.jpg"]',
+    proceedToCheckOut1: 'a[class="btn btn-default button button-medium"]',
     proceedToCheckOut2: 'a[href="http://automationpractice.com/index.php?controller=order&step=1"]',
     proceedToCheckOut3: 'button[name="processAddress"]',
     proceedToCheckOut4: 'button[name="processCarrier"]',

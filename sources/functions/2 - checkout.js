@@ -23,35 +23,38 @@ let checkOut = browser => {
     let dressesPage = browser.page.dresses();
     dressesPage.navigate()
 
-    // Pick one of the available dresses and add to cart
+    // Change to List view
     dressesPage
-        .waitForElementVisible('@firstItemCheckOutButton', 5000)
-        .click('@firstItemCheckOutButton')
-        .waitForElementVisible('@proceedToCheckOut1', 3000)
-        .click('@proceedToCheckOut1')
+        .waitForElementVisible('@listButton', 5000)
+        .click('@listButton')
+        .waitForElementVisible('@firstItemAddToCart', 3000)
+        .click('@firstItemAddToCart')
 
+    // Checkout process
     browser
+        .waitForElementVisible(selectors.proceedToCheckOut1, 5000)
+        .click(selectors.proceedToCheckOut1)
         .waitForElementVisible(selectors.proceedToCheckOut2, 5000)
         .click(selectors.proceedToCheckOut2)
-        .waitForElementVisible(selectors.proceedToCheckout3, 5000)
-        .click(selectors.proceedToCheckout3)
-        .waitForElementVisible(selectors.agreeToTerms, 5000)
+        .waitForElementVisible(selectors.proceedToCheckOut3, 5000)
+        .click(selectors.proceedToCheckOut3)
+        .waitForElementVisible(selectors.proceedToCheckOut4, 5000)
         .click(selectors.agreeToTerms)
         .click(selectors.proceedToCheckOut4)
         // Make sure the item is in stock
         .expect.element(selectors.availabilityLabel).text.to.equal("In stock")
-    
+
     // Pay by bank wire
     browser
         .click(selectors.payByBankWire)
         .waitForElementVisible(selectors.confirmButton, 5000)
         .click(selectors.confirmButton)
-    
+
     // Go back to orders
     browser
         .waitForElementVisible(selectors.backToOrders, 5000)
         .click(selectors.backToOrders)
-    
+
     // CHeck that there is a table row in the order history table
     browser
         .useXpath()

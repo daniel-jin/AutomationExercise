@@ -37,7 +37,7 @@ let register = browser => {
         .expect.element('@createAccountErrorLine').text.to.equal(data.registration.invalidEmailError)
 
     // Enter valid email address
-    setInputValue(authenticationPage, '@emailCreateInput', data.registration.validEmailAddress5)
+    setInputValue(authenticationPage, '@emailCreateInput', data.registration.validEmailAddress3)
     authenticationPage
         .click('@createAccountButton')
 
@@ -78,7 +78,7 @@ let register = browser => {
         .expect.element('@errorText').text.to.contain("invalid")
     
     // Enter valid email address and attempt to register - should result in 6 errors.
-    setInputValue(personalInfoPage, '@emailInput', data.registration.validEmailAddress5)
+    setInputValue(personalInfoPage, '@emailInput', data.registration.validEmailAddress3)
     browser.pause(2000)
     personalInfoPage
         .click('@registerButton')
